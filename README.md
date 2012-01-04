@@ -7,7 +7,7 @@ The gem is compatible with the following Rails versions
 - >= 2.3
 - >= 3
 
-** This is an Alpha Release **
+**This is an Alpha Release**
 
 ## Setup
 
@@ -61,7 +61,9 @@ You can find your API-Key by login to your [Exceptiontrap Account](https://alpha
 
 ## Known Issues / Todo
 
-At the moment ActionController::RoutingError's are not catched.
+At the moment ActionController::RoutingError's are not catched in Rails 3 applications.
+
+SSL-Support is not included.
 
 Optimize and insert the test suite to the gem.
 
