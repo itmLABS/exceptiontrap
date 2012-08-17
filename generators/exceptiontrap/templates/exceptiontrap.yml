@@ -1,0 +1,16 @@
+# Exceptiontrap Config File
+api-key: <%= api_key %>
+ssl: false
+timeout: 5000
+enabledEnvironments:
+  - 'production'
+ignoreExceptions:
+  - 'ActiveRecord::RecordNotFound'
+  - 'ActionController::RoutingError'
+  - 'ActionController::InvalidAuthenticityToken'
+  - 'CGI::Session::CookieStore::TamperedWithCookie'
+  - 'ActionController::UnknownAction'
+filterParams:
+  - 'password'
+  - 'password_confirmation'
+  - 's3-key'

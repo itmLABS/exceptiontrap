@@ -1,0 +1,11 @@
+Description:
+  Run this generator to create the Exceptiontrap config file
+
+Example:
+  Rails 2
+    ./script/generate exceptiontrap --api-key YOUR_API_KEY
+  Rails 3
+    rails generate exceptiontrap --api-key YOUR_API_KEY
+
+  This will create:
+    The Exceptiontrap config file in your applications config directory
