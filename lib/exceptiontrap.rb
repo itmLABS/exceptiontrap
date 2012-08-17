@@ -14,8 +14,8 @@ require 'exceptiontrap/railtie' if defined?(Rails::Railtie)
 module Exceptiontrap
   API_VERSION = '1'
   NOTIFIER_NAME = 'exceptiontrap-rails'
-  NOTIFICATION_URL = 'http://alpha.exceptiontrap.com/notifier/api/v1/problems'
-  # DEPLOYMENT_URL = 'http://alpha.exceptiontrap.com/notifier/api/v1/deployments'
+  NOTIFICATION_URL = 'alpha.exceptiontrap.com/notifier/api/v1/problems'
+  DEPLOYMENT_URL = 'alpha.exceptiontrap.com/notifier/api/v1/deployments'
 
   HEADERS = {
     'Content-type' => 'application/json',
