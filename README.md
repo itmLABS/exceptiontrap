@@ -1,6 +1,6 @@
 # Exceptiontrap
 
-This gem is used to report your Ruby on Rails applications exceptions to the [Exceptiontrap](https://alpha.exceptiontrap.com) webservice.
+This gem is used to catch and report your Ruby on Rails applications errors and exceptions to the [Exceptiontrap](https://alpha.exceptiontrap.com) webservice.
 
 The gem is compatible with the following Rails versions
 
