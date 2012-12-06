@@ -2,8 +2,8 @@ require 'net/http'
 require 'net/https'
 require 'uri'
 
-require "exceptiontrap/version"
-require "exceptiontrap/config"
+require 'exceptiontrap/version'
+require 'exceptiontrap/config'
 require 'exceptiontrap/notifier'
 require 'exceptiontrap/rack'
 
