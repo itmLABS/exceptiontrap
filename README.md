@@ -1,13 +1,11 @@
 # Exceptiontrap
 
-This gem is used to catch and report your Ruby on Rails applications errors and exceptions to the [Exceptiontrap](https://alpha.exceptiontrap.com) webservice.
+This gem is used to catch and report your Ruby on Rails applications errors and exceptions to the [Exceptiontrap](https://exceptiontrap.com) webservice.
 
 The gem is compatible with the following Rails versions
 
 - >= 2.3
 - >= 3
-
-**This is an Alpha Release**
 
 ## Setup
 
@@ -57,15 +55,11 @@ and you should be fine.
 
 ## Information / Further Configuration
 
-You can find your API-Key by login to your [Exceptiontrap Account](https://alpha.exceptiontrap.com/login), select the application and follow the `Setup` Link.
+You can find your API-Key by login to your [Exceptiontrap Account](https://exceptiontrap.com/login), select the application and follow the `Setup` Link.
 
 ## Known Issues / Todo
-
-At the moment ActionController::RoutingError's are not catched in Rails 3 applications.
-
-SSL-Support is not included.
 
 Optimize and insert the test suite to the gem.
 
 
-Copyright (c) 2012 [Torsten Bühl], released under the MIT license
+Copyright (c) 2013 [Torsten Bühl], released under the MIT license
