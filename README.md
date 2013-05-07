@@ -5,11 +5,11 @@ This gem is used to catch and report your Ruby on Rails applications errors and 
 The gem is compatible with the following Rails versions
 
 - >= 2.3
-- >= 3
+- 3 and 4
 
 ## Setup
 
-### Rails 3
+### Rails 3 / 4
 
 #### 1. Install
 
