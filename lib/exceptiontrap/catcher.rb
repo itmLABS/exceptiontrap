@@ -25,7 +25,6 @@ module Exceptiontrap
 
     # Sends the exception to exceptiontrap
     def handle_with_exceptiontrap(exception)
-      # puts "DEBUG: Raised Exceptiontrap::Catcher::Exception"
       data = Exceptiontrap::Data.rails2_data(exception, request, session, response)
       Exceptiontrap::Notifier.notify(data)
     end

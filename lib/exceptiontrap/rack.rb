@@ -6,7 +6,6 @@ module Exceptiontrap
 
     def call(env)
       begin
-        puts 'DEBUG: Begin Exceptiontrap::Rack'
         response = @app.call(env)
       rescue Exception => raised
         puts 'DEBUG: Raised Exceptiontrap::Rack::Exception'

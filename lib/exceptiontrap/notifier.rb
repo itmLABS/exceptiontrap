@@ -2,16 +2,12 @@ module Exceptiontrap
   class Notifier
     class << self
       def notify(data)
-        puts 'DEBUG: Notify Exception'
-
         @data = data
         serialized_data = { :problem => data }.to_json
         send_problem(serialized_data) unless ignore_exception?
       end
 
       def send_problem(serialized_data)
-        puts 'DEBUG: Send Exception'
-
         url = URI.parse((Config.use_ssl? ? 'https://' : 'http://') << NOTIFICATION_URL)
         client = prepare_client(url)
 
