@@ -36,13 +36,33 @@ module Exceptiontrap
           'location' => location(exception),
           'root' => application_root.to_s,
           'app_environment' => application_environment,
-          'request_uri' => env['REQUEST_URI'],
+          'request_uri' => rack_request_url(env),
           'request_params' => clean_params(env['action_dispatch.request.parameters']),
           'request_session' => clean_params(extrap_session_data(env['rack.session'])),
           'environment' => clean_params(env),
           'trace' => clean_backtrace(exception.backtrace),
           'request_components' => components
         }
+      end
+
+      def rack_request_url(env)
+        protocol = rack_scheme(env)
+        host = env['SERVER_NAME'] || ""
+        path = env['REQUEST_URI'] || ""
+        port = env['SERVER_PORT'] || "80"
+        port = ["80", "443"].include?(port.to_s) ? "" : ":#{port}"
+
+        "#{protocol}://" + host + port + path;
+      end
+
+      def rack_scheme(env)
+        if env['HTTPS'] == 'on'
+          'https'
+        elsif env['HTTP_X_FORWARDED_PROTO']
+          env['HTTP_X_FORWARDED_PROTO'].split(',')[0]
+        else
+          env["rack.url_scheme"]
+        end
       end
 
       # Cleanup data
