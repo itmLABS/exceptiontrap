@@ -52,7 +52,7 @@ module Exceptiontrap
         port = env['SERVER_PORT'] || "80"
         port = ["80", "443"].include?(port.to_s) ? "" : ":#{port}"
 
-        "#{protocol}://" + host + port + path;
+        "#{protocol}://" + host.to_s + port.to_s + path.to_s;
       end
 
       def rack_scheme(env)
