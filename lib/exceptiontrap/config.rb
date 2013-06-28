@@ -13,7 +13,7 @@ module Exceptiontrap
           begin
             config = YAML::load(File.open(config_file))
 
-            @api_key = config['api-key']
+            @api_key = ENV['EXCEPTIONTRAP_API_KEY'] || config['api-key']
             @ssl = config['ssl']
             @ignored_exceptions = config['ignoreExceptions']
             @enabled_environments = config['enabledEnvironments']
