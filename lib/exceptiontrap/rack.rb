@@ -7,9 +7,10 @@ module Exceptiontrap
     def call(env)
       begin
         response = @app.call(env)
-      rescue Exception => raised
+      rescue Exception => exception
         puts '[Exceptiontrap] Raised Exceptiontrap::Rack::Exception'
-        data = Exceptiontrap::Data.rack_data(raised, env)
+        puts "[Exceptiontrap] Catched Exception: #{exception.class.name}"
+        data = Exceptiontrap::Data.rack_data(exception, env)
         Exceptiontrap::Notifier.notify(data)
         raise
       end
