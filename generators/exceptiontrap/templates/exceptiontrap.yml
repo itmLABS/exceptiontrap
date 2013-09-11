@@ -1,6 +1,6 @@
 # Exceptiontrap Config File
 api-key: <%= api_key %>
-ssl: false
+ssl: true
 timeout: 5000
 enabledEnvironments:
   - 'production'
