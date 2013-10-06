@@ -47,12 +47,14 @@ module Exceptiontrap
 
       def rack_request_url(env)
         protocol = rack_scheme(env)
+        protocol = protocol.nil? ? "" : "#{protocol}://"
+
         host = env['SERVER_NAME'] || ""
         path = env['REQUEST_URI'] || ""
         port = env['SERVER_PORT'] || "80"
         port = ["80", "443"].include?(port.to_s) ? "" : ":#{port}"
 
-        "#{protocol}://" + host.to_s + port.to_s + path.to_s;
+        protocol.to_s + host.to_s + port.to_s + path.to_s;
       end
 
       def rack_scheme(env)
