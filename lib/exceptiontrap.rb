@@ -35,6 +35,13 @@ module Exceptiontrap
     end
   end
 
+  def self.notify(exception, params = {})
+    if enabled?
+      data = Data.rack_data(exception, params)
+      Notifier.notify(data)
+    end
+  end
+
   def self.enabled?
     Config.enabled_environments.include?(Data.application_environment)
   end
