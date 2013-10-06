@@ -26,7 +26,7 @@ module Exceptiontrap
   if !defined?(Rails::Railtie) && defined?(Rails.configuration) && Rails.configuration.respond_to?(:middleware)
     Exceptiontrap::Config.load(File.join(Rails.root, '/config/exceptiontrap.yml'))
 
-    if Config.enabled_environments.include?(Exceptiontrap::Data.application_environment)
+    if enabled?
       if defined?(ActionController::Base) && !ActionController::Base.include?(Exceptiontrap::Catcher)
         ActionController::Base.send(:include, Exceptiontrap::Catcher) # puts "-> Activated Exceptiontrap::Catcher for Rails 2"
       end
@@ -35,4 +35,7 @@ module Exceptiontrap
     end
   end
 
+  def self.enabled?
+    Config.enabled_environments.include?(Data.application_environment)
+  end
 end
