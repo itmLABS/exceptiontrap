@@ -21,7 +21,7 @@ module Exceptiontrap
       end
 
       # Creates Notification Data for rack requests (Rails 3)
-      def rack_data(exception, env)
+      def rack_data(exception, env = {})
         components = {}
         if env["action_dispatch.request.parameters"] != nil
           components[:controller] = env['action_dispatch.request.parameters'][:controller] || nil
