@@ -9,6 +9,8 @@ require 'exceptiontrap/rack'
 
 # Use Rack Middleware for Rails 3
 require 'exceptiontrap/railtie' if defined?(Rails::Railtie)
+# Background Worker Middleware
+require "exceptiontrap/sidekiq" if defined?(Sidekiq)
 
 # Exceptiontrap
 module Exceptiontrap
