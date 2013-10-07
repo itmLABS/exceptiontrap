@@ -4,7 +4,7 @@ module Exceptiontrap
       begin
         yield
       rescue => exception
-        Exceptiontrap::notify(exception, { custom_params: msg, controller: msg['class'] })
+        Exceptiontrap::notify(exception, { custom_params: msg, custom_controller: msg['class'] })
         raise exception
       end
     end

@@ -29,6 +29,9 @@ module Exceptiontrap
           components[:module] = env['action_dispatch.request.parameters'][:module] || nil
         end
 
+        # For background workers like sidekiq # TODO: extract data creation for background jobs
+        components[:controller] ||= env[:custom_controller]
+
         data = {
           'notifier' => NOTIFIER_NAME,
           'name' => exception.class.name,
