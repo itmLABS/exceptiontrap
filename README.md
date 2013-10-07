@@ -63,6 +63,18 @@ You can find your API-Key by login to your [Exceptiontrap Account](https://excep
 
 Exceptiontrap catches [Sidekiq](http://sidekiq.org) errors automatically, you don't have to do anything. Easy, right?
 
+### DelayedJob
+
+There is no automatic integration into [DelayedJob](https://github.com/collectiveidea/delayed_job) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside DelayedJobs's `error hook`
+
+    class ParanoidNewsletterJob < NewsletterJob
+      # ...
+
+      def error(job, exception)
+        Exceptiontrap.notify(exception, custom_controller: job.class.name)
+      end
+    end
+
 ## Known Issues / Todo
 
 Optimize and insert the test suite to the gem.
