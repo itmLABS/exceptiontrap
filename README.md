@@ -57,6 +57,12 @@ and you should be fine.
 
 You can find your API-Key by login to your [Exceptiontrap Account](https://exceptiontrap.com/login), select the application and follow the `Setup` Link.
 
+## Integration with Background Jobs and Workers
+
+### Sidekiq
+
+Exceptiontrap catches [Sidekiq](http://sidekiq.org) errors automatically, you don't have to do anything. Easy, right?
+
 ## Known Issues / Todo
 
 Optimize and insert the test suite to the gem.
