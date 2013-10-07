@@ -65,7 +65,7 @@ Exceptiontrap catches [Sidekiq](http://sidekiq.org) errors automatically, you do
 
 ### DelayedJob
 
-There is no automatic integration into [DelayedJob](https://github.com/collectiveidea/delayed_job) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside DelayedJobs's `error hook`
+There is no automatic integration into [DelayedJob](https://github.com/collectiveidea/delayed_job) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside DelayedJob's `error hook`
 
 ```ruby
 class ParanoidNewsletterJob < NewsletterJob
