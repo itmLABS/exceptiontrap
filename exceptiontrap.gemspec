@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["tbuehl@itm-labs.de"]
   s.homepage    = "http://exceptiontrap.com"
   s.summary     = %q{Exception notifier, used to report your apps exceptions to the exceptiontrap webservice}
-  s.description = %q{Exception notifier. The Gem catches your applications exceptions and sends those to the exceptiontrap webservice hosted at http://exceptiontrap.com}
+  s.description = %q{Exception notifier. The Gem catches your applications exceptions and sends those to the exceptiontrap webservice hosted at https://exceptiontrap.com}
 
   s.rubyforge_project = "exceptiontrap"
 
