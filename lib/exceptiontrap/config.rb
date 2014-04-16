@@ -19,7 +19,7 @@ module Exceptiontrap
             @enabled_environments = config['enabledEnvironments']
             @filtered_params = config['filterParams']
           rescue Exception => e
-            raise ConfigException.new("Unable to load configuration #{config_file} : #{e.message}")
+            raise Exception.new("Unable to load configuration #{config_file} : #{e.message}")
           end
         end
       end
