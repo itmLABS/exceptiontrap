@@ -27,6 +27,8 @@ Now generate the `config/exceptiontrap.yml` file with
 
 and you should be fine.
 
+**Note:** Some exceptions are ignored by default, e.g. `RoutingError` and `RecordNotFound` errors. You can change this behavior in the just generated `config/exceptiontrap.yml` file.
+
 ### Rails 2.3
 
 #### 1a. Install (with Bundler)
