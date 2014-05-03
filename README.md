@@ -53,6 +53,8 @@ Now generate the `config/exceptiontrap.yml` file with
 
 and you should be fine.
 
+**Note:** Some exceptions are ignored by default, e.g. `RoutingError` and `RecordNotFound` errors. You can change this behavior in the just generated `config/exceptiontrap.yml` file.
+
 ## Information / Further Configuration
 
 You can find your API-Key by login to your [Exceptiontrap Account](https://exceptiontrap.com/login), select the application and follow the `Setup` Link.
