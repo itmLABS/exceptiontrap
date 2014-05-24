@@ -11,8 +11,15 @@ module Exceptiontrap
   end
 end
 
-::Sidekiq.configure_server do |config|
-  config.server_middleware do |chain|
-    chain.add ::Exceptiontrap::SidekiqException
+if Sidekiq::VERSION < '3'
+  # old behavior
+  Sidekiq.configure_server do |config|
+    config.server_middleware do |chain|
+      chain.add Exceptiontrap::SidekiqException
+    end
+  end
+else
+  Sidekiq.configure_server do |config|
+    config.error_handlers << Proc.new {|ex, context| Exceptiontrap::notify(ex, context.merge(custom_controller: context['class'])) }
   end
 end
