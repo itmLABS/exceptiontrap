@@ -69,7 +69,7 @@ Exceptiontrap catches [Sidekiq](http://sidekiq.org) errors automatically, you do
 
 ### DelayedJob
 
-There is no automatic integration into [DelayedJob](https://github.com/collectiveidea/delayed_job) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside DelayedJob's `error hook`
+There is no automatic integration into [DelayedJob](https://github.com/collectiveidea/delayed_job) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside DelayedJobs `error` hook.
 
 ```ruby
 class ParanoidNewsletterJob < NewsletterJob
@@ -77,6 +77,27 @@ class ParanoidNewsletterJob < NewsletterJob
 
   def error(job, exception)
     Exceptiontrap.notify(exception, custom_controller: job.class.name)
+  end
+end
+```
+
+### Resque
+
+automatic integration into [Resque](https://github.com/resque/resque) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside Resques `on_failure` hook.
+
+You can also create a module with Exceptiontrap enabled and integrate this.
+
+```ruby
+module ExceptiontrapJob
+  def on_failure(exception, *args)
+    Exceptiontrap.notify(exception, args)
+  end
+end
+
+class MyJob
+  extend ExceptiontrapJob
+  def self.perform(*args)
+    ...
   end
 end
 ```
