@@ -5,7 +5,9 @@ module Exceptiontrap
         :enabled_environments => %w(production),
         :ignored_exceptions => %w(ActiveRecord::RecordNotFound ActionController::RoutingError),
         :filtered_params => %w(password s3-key),
-        :ssl => false
+        :ssl => false,
+        :notification_url => 'exceptiontrap.com/notifier/api/v1/problems',
+        :deployment_url => 'exceptiontrap.com/notifier/api/v1/deployments'
       }
 
       def load(config_file = nil)
@@ -18,6 +20,7 @@ module Exceptiontrap
             @ignored_exceptions = config['ignoreExceptions']
             @enabled_environments = config['enabledEnvironments']
             @filtered_params = config['filterParams']
+            @notification_url = config['notificationUrl']
           rescue Exception => e
             raise "Unable to load configuration #{config_file} : #{e.message}"
           end
@@ -26,6 +29,10 @@ module Exceptiontrap
 
       def api_key
         @api_key
+      end
+
+      def notification_url
+        @notification_url ||= DEFAULTS[:notification_url]
       end
 
       def enabled_environments

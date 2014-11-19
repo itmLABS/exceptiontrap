@@ -8,7 +8,7 @@ module Exceptiontrap
       end
 
       def send_problem(serialized_data)
-        url = URI.parse((Config.use_ssl? ? 'https://' : 'http://') << NOTIFICATION_URL)
+        url = URI.parse((Config.use_ssl? ? 'https://' : 'http://') << Config.notification_url)
         client = prepare_client(url)
 
         headers = HEADERS

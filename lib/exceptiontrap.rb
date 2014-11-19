@@ -16,8 +16,6 @@ require "exceptiontrap/sidekiq" if defined?(Sidekiq)
 module Exceptiontrap
   API_VERSION = '1'
   NOTIFIER_NAME = 'exceptiontrap-rails'
-  NOTIFICATION_URL = 'exceptiontrap.com/notifier/api/v1/problems'
-  DEPLOYMENT_URL = 'exceptiontrap.com/notifier/api/v1/deployments'
 
   HEADERS = {
     'Content-type' => 'application/json',
