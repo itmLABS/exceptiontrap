@@ -83,7 +83,7 @@ end
 
 ### Resque
 
-automatic integration into [Resque](https://github.com/resque/resque) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside Resques `on_failure` hook.
+automatic integration into [Resque](https://github.com/resque/resque) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside Resque's `on_failure` hook.
 
 You can also create a module with Exceptiontrap enabled and integrate this.
 
@@ -107,4 +107,4 @@ end
 Optimize and insert the test suite to the gem.
 
 
-Copyright (c) 2013 [Torsten Bühl], released under the MIT license
+Copyright (c) 2018 [Torsten Bühl], released under the MIT license
