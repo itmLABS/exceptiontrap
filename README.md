@@ -22,11 +22,11 @@ Now generate the `config/exceptiontrap.yml` file with
 
 and you should be fine.
 
-**Note:** Some exceptions are ignored by default, e.g. `RoutingError` and `RecordNotFound` errors. You can change this behavior in the just generated `config/exceptiontrap.yml` file.
+**Note:** Some exceptions are ignored by default, e.g. `RoutingError` and `RecordNotFound` errors. You can change this behavior in the `config/exceptiontrap.yml` file that we just generated.
 
 ## Information / Further Configuration
 
-You can find your API-Key by login to your [Exceptiontrap Account](https://exceptiontrap.com/login), select the application and follow the `Setup` Link.
+You can find your API-Key by logging in to your [Exceptiontrap Account](https://exceptiontrap.com/login). Select the application, and follow the `Setup` link.
 
 ## Integration with Background Jobs and Workers
 
@@ -36,7 +36,7 @@ Exceptiontrap catches [Sidekiq](http://sidekiq.org) errors automatically, you do
 
 ### DelayedJob
 
-There is no automatic integration into [DelayedJob](https://github.com/collectiveidea/delayed_job) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside DelayedJobs `error` hook.
+There is no automatic integration into [DelayedJob](https://github.com/collectiveidea/delayed_job) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside DelayedJob's `error` hook.
 
 ```ruby
 class ParanoidNewsletterJob < NewsletterJob
@@ -50,7 +50,7 @@ end
 
 ### Resque
 
-automatic integration into [Resque](https://github.com/resque/resque) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside Resque's `on_failure` hook.
+There is no automatic integration into [Resque](https://github.com/resque/resque) yet. Meanwhile you can let Exceptiontrap notifiy you about errors using its `notify` method inside Resque's `on_failure` hook.
 
 You can also create a module with Exceptiontrap enabled and integrate this.
 
