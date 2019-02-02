@@ -22,21 +22,6 @@ module Exceptiontrap
     'Accept' => 'application/json'
   }
 
-  # Load for Rails 2.3 (Rack and Exceptiontrap::Catcher)
-  if !defined?(Rails::Railtie) && defined?(Rails.configuration) && Rails.configuration.respond_to?(:middleware)
-    Exceptiontrap::Config.load(File.join(Rails.root, '/config/exceptiontrap.yml'))
-
-    if enabled?
-      # Rails 2
-      if defined?(ActionController::Base) && !ActionController::Base.include?(Exceptiontrap::Catcher)
-        ActionController::Base.send(:include, Exceptiontrap::Catcher)
-      end
-
-      # Rails >= 2.3
-      Rails.configuration.middleware.use 'Exceptiontrap::Rack'
-    end
-  end
-
   def self.notify(exception, params = {})
     return if disabled?
     data = Data.rack_data(exception, params)
