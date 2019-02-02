@@ -25,13 +25,14 @@ module Exceptiontrap
   # Load for Rails 2.3 (Rack and Exceptiontrap::Catcher)
   if !defined?(Rails::Railtie) && defined?(Rails.configuration) && Rails.configuration.respond_to?(:middleware)
     Exceptiontrap::Config.load(File.join(Rails.root, '/config/exceptiontrap.yml'))
-    return if disabled?
 
-    if defined?(ActionController::Base) && !ActionController::Base.include?(Exceptiontrap::Catcher)
-      ActionController::Base.send(:include, Exceptiontrap::Catcher) # puts "-> Activated Exceptiontrap::Catcher for Rails 2"
+    if enabled?
+      if defined?(ActionController::Base) && !ActionController::Base.include?(Exceptiontrap::Catcher)
+        ActionController::Base.send(:include, Exceptiontrap::Catcher) # puts "-> Activated Exceptiontrap::Catcher for Rails 2"
+      end
+
+      Rails.configuration.middleware.use 'Exceptiontrap::Rack' # puts "-> Activated Exceptiontrap::Rack for Rails 2.3+"
     end
-
-    Rails.configuration.middleware.use 'Exceptiontrap::Rack' # puts "-> Activated Exceptiontrap::Rack for Rails 2.3+"
   end
 
   def self.notify(exception, params = {})
