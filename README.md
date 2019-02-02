@@ -2,9 +2,7 @@
 
 This gem is used to catch and report your Ruby on Rails applications errors and exceptions to the [Exceptiontrap](https://exceptiontrap.com) webservice.
 
-The gem is compatible with the following Rails versions
-
-- 3, 4, and 5
+The gem is compatible with Rails 3, 4, and 5
 
 ## Setup
 
