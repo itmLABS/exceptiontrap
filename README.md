@@ -32,7 +32,7 @@ You can find your API-Key by logging in to your [Exceptiontrap Account](https://
 
 ### Sidekiq
 
-Exceptiontrap catches [Sidekiq](http://sidekiq.org) errors automatically, you don't have to do anything. Easy, right?
+Exceptiontrap catches [Sidekiq](http://sidekiq.org) errors automatically. You don't have to set up anything. Easy, right?
 
 ### DelayedJob
 
