@@ -7,7 +7,7 @@ require 'exceptiontrap/config'
 require 'exceptiontrap/notifier'
 require 'exceptiontrap/rack'
 
-# Use Rack Middleware for Rails 3
+# Use Rack Middleware for Rails >= 3
 require 'exceptiontrap/railtie' if defined?(Rails::Railtie)
 # Background Worker Middleware
 require "exceptiontrap/sidekiq" if defined?(Sidekiq)
@@ -27,11 +27,13 @@ module Exceptiontrap
     Exceptiontrap::Config.load(File.join(Rails.root, '/config/exceptiontrap.yml'))
 
     if enabled?
+      # Rails 2
       if defined?(ActionController::Base) && !ActionController::Base.include?(Exceptiontrap::Catcher)
-        ActionController::Base.send(:include, Exceptiontrap::Catcher) # puts "-> Activated Exceptiontrap::Catcher for Rails 2"
+        ActionController::Base.send(:include, Exceptiontrap::Catcher)
       end
 
-      Rails.configuration.middleware.use 'Exceptiontrap::Rack' # puts "-> Activated Exceptiontrap::Rack for Rails 2.3+"
+      # Rails >= 2.3
+      Rails.configuration.middleware.use 'Exceptiontrap::Rack'
     end
   end
 
