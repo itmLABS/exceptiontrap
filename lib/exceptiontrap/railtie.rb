@@ -6,7 +6,7 @@ module Exceptiontrap
   class ExceptiontrapRailtie < Rails::Railtie
     initializer 'exceptiontrap.middleware' do |app|
       Exceptiontrap::Config.load(File.join(Rails.root, '/config/exceptiontrap.yml'))
-      return if Exceptiontrap::disabled?
+      next if Exceptiontrap::disabled?
 
       app.config.middleware.insert_after ActionDispatch::ShowExceptions, Exceptiontrap::Rack
     end
