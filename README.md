@@ -71,7 +71,7 @@ end
 
 ## Known Issues / Todo
 
-Optimize and insert the test suite.
+Optimize and add the test suite.
 
 
 Copyright (c) 2018 [Torsten Bühl], released under the MIT license
