@@ -74,4 +74,4 @@ end
 Optimize and add the test suite.
 
 
-Copyright (c) 2018 [Torsten Bühl], released under the MIT license
+Copyright (c) 2019 [Torsten Bühl], released under the MIT license
