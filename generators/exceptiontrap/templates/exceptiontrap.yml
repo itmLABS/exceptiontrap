@@ -1,7 +1,7 @@
 # Exceptiontrap Config File
 
-# If ENV['api-key'] is set, it will be used instead of the following api-key
-# This happens for example, if you use the exceptiontrap addon on heroku
+# If ENV['EXCEPTIONTRAP_API_KEY'] is set, it will be used instead of the following api-key
+# This happens for example if you use the Exceptiontrap add-on on Heroku
 api-key: <%= api_key %>
 ssl: true
 timeout: 5000
