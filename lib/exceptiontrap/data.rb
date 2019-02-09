@@ -22,8 +22,8 @@ module Exceptiontrap
           'app_environment' => application_environment,
           'request_uri' => rack_request_url(env),
           'request_params' => clean_params(env['action_dispatch.request.parameters']),
-          'request_session' => clean_params(extrap_session_data(env['rack.session'])),
-          'environment' => clean_params(env),
+          'request_session' => clean_params(session_data(env)),
+          'environment' => clean_params(strip_env(env)),
           'trace' => clean_backtrace(exception.backtrace),
           'request_components' => components
         }
@@ -67,8 +67,9 @@ module Exceptiontrap
       end
 
       # Deletes params from env / set in config file
-      def remove_params
-        remove_params = ['rack.request.form_hash', 'rack.request.form_vars']
+      def strip_env(env)
+        keys_to_remove = ['rack.request.form_hash', 'rack.request.form_vars', 'async.callback']
+        env.reject { |k,v| keys_to_remove.include?(k) }
       end
 
       # Replaces parameter values with a string / set in config file
@@ -93,9 +94,10 @@ module Exceptiontrap
         end
       end
 
-      # Retrieve data
-      def extrap_session_data(session)
+      def session_data(env)
+        session = env['action_dispatch.request.session']
         return if session == nil
+
         if session.respond_to?(:to_hash)
           session.to_hash
         else
