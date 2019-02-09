@@ -1,26 +1,7 @@
 module Exceptiontrap
+  # TODO: Rewrite this class
   class Data
     class << self
-      # TODO: Remove the duplication or separate classes
-      # Creates Notification Data for action controller requests (Rails 2)
-      def rails2_data(exception, request, session, response)
-        data = {
-          'notifier' => NOTIFIER_NAME,
-          'name' => exception.class.name,
-          'message' => exception.message,
-          'location' => location(exception),
-          'root' => application_root.to_s,
-          'app_environment' => application_environment,
-          'request_uri' => request.url || REQUEST_URI,
-          'request_params' => clean_params(request.params),
-          'request_session' => clean_params(extrap_session_data(session)),
-          'environment' => clean_params(request.env),
-          'trace' => clean_backtrace(exception.backtrace),
-          'request_components' => { :controller => request.params[:controller], :action => request.params[:action] }
-        }
-      end
-
-      # Creates Notification Data for rack requests (Rails 3)
       def rack_data(exception, env = {})
         components = {}
         if env["action_dispatch.request.parameters"] != nil
