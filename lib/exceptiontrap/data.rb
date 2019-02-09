@@ -115,18 +115,17 @@ module Exceptiontrap
         defined?(Rails.root) ? Rails.root : Dir.pwd
       end
 
-      # Trims first underscore from keys, to prevent "malformed" rails XML-tags
+      # TODO: Refactor
       def normalize_data(hash)
         new_hash = {}
 
-        # TODO: Do this nicer
         hash.each do |key, value|
-          # key_s = key.to_s.dup
-          # key_s.sub!("_", "") if key_s[0].chr == "_"
-          # key_s.sub!("_", "") if key_s[0].chr == "_"
-
-          if value.respond_to?(:to_hash) # if hash, normalize these too
-            new_hash[key] = normalize_data(value.to_hash)
+          if value.respond_to?(:to_hash)
+            begin
+              new_hash[key] = normalize_data(value.to_hash)
+            rescue
+              new_hash[key] = value.to_s
+            end
           else
             new_hash[key] = value.to_s
           end
