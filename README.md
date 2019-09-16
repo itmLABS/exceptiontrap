@@ -1,3 +1,6 @@
+[![Gem Version](https://badge.fury.io/rb/exceptiontrap.svg)](https://badge.fury.io/rb/exceptiontrap)
+[![Maintainability](https://api.codeclimate.com/v1/badges/54bdf2c81f42aac11680/maintainability)](https://codeclimate.com/github/itmLABS/exceptiontrap/maintainability)
+
 # Exceptiontrap
 
 This gem is used to catch and report your Ruby on Rails applications errors and exceptions to the [Exceptiontrap](https://exceptiontrap.com) webservice.
