@@ -22,6 +22,13 @@ module Exceptiontrap
     'Accept' => 'application/json'
   }
 
+  # Used by SidekiqException or for manual calls
+  def self.notify(exception, params = {})
+    return if disabled?
+    data = Data.rack_data(exception, params)
+    Notifier.notify(data)
+  end
+
   def self.enabled?
     Config.enabled_environments.include?(Data.application_environment)
   end
