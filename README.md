@@ -5,7 +5,7 @@
 
 This gem is used to catch and report your Ruby on Rails applications errors and exceptions to the [Exceptiontrap](https://exceptiontrap.com) webservice.
 
-The gem is compatible with Rails 3, 4, 5, and 6
+The gem is compatible with Rails >= 3 (yes, including Rails 7)
 
 ## Setup
 
@@ -72,9 +72,4 @@ class MyJob
 end
 ```
 
-## Known Issues / Todo
-
-Optimize and add the test suite.
-
-
-Copyright (c) 2019 [Torsten Bühl], released under the MIT license
+Copyright (c) 2021 [Torsten Bühl], released under the MIT license
