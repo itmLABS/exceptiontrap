@@ -72,4 +72,6 @@ class MyJob
 end
 ```
 
+## License
+
 Copyright (c) 2021 [Torsten Bühl], released under the MIT license
